@@ -1,0 +1,218 @@
+{
+  "maxy": [
+    {
+      "src": "/work/maxy/01.webp",
+      "w": 1600,
+      "h": 900,
+      "from": "85c29b9e-3fad-4e7e-80de-ea94c07da91e.jpg"
+    },
+    {
+      "src": "/work/maxy/02.webp",
+      "w": 1600,
+      "h": 1200,
+      "from": "8d2555f8-562b-41d0-9c38-faf1fe18a95a.jpg"
+    },
+    {
+      "src": "/work/maxy/03.webp",
+      "w": 1600,
+      "h": 1200,
+      "from": "E9C914A3-5AEB-4ECF-94FD-6CA7CEE81416.jpg"
+    },
+    {
+      "src": "/work/maxy/04.webp",
+      "w": 1600,
+      "h": 900,
+      "from": "IMG_1590.jpg"
+    },
+    {
+      "src": "/work/maxy/05.webp",
+      "w": 1600,
+      "h": 1200,
+      "from": "IMG_3108.HEIC"
+    },
+    {
+      "src": "/work/maxy/06.webp",
+      "w": 900,
+      "h": 1600,
+      "from": "IMG_5288.HEIC"
+    },
+    {
+      "src": "/work/maxy/07.webp",
+      "w": 1600,
+      "h": 900,
+      "from": "dcf0cd22-e4c9-40ae-94b6-8bb69326ac62.jpg"
+    },
+    {
+      "src": "/work/maxy/08.webp",
+      "w": 1279,
+      "h": 553,
+      "from": "lms maxy.png"
+    }
+  ],
+  "bps": [
+    {
+      "src": "/work/bps/01.webp",
+      "w": 900,
+      "h": 1600,
+      "from": "6525BEA6-303B-4ECC-90E7-BE5891E71BDA.jpg"
+    },
+    {
+      "src": "/work/bps/02.webp",
+      "w": 1200,
+      "h": 1600,
+      "from": "IMG_1432.HEIC"
+    },
+    {
+      "src": "/work/bps/03.webp",
+      "w": 1200,
+      "h": 1600,
+      "from": "IMG_4105.HEIC"
+    },
+    {
+      "src": "/work/bps/04.webp",
+      "w": 1200,
+      "h": 1600,
+      "from": "IMG_4117.HEIC"
+    },
+    {
+      "src": "/work/bps/05.webp",
+      "w": 1600,
+      "h": 1200,
+      "from": "IMG_4461.HEIC"
+    },
+    {
+      "src": "/work/bps/06.webp",
+      "w": 1600,
+      "h": 1067,
+      "from": "IMG_5273.JPG"
+    },
+    {
+      "src": "/work/bps/07.webp",
+      "w": 1600,
+      "h": 1067,
+      "from": "IMG_5275.JPG"
+    }
+  ],
+  "dibimbing-apo": [
+    {
+      "src": "/work/dibimbing-apo/01.webp",
+      "w": 900,
+      "h": 1600,
+      "from": "33b6843e-8810-4d46-a2e5-4f7326687e73.jpg"
+    },
+    {
+      "src": "/work/dibimbing-apo/02.webp",
+      "w": 1200,
+      "h": 1600,
+      "from": "IMG_0872.HEIC"
+    },
+    {
+      "src": "/work/dibimbing-apo/03.webp",
+      "w": 1200,
+      "h": 1600,
+      "from": "IMG_5526.JPG"
+    },
+    {
+      "src": "/work/dibimbing-apo/04.webp",
+      "w": 1200,
+      "h": 1600,
+      "from": "IMG_5528.JPG"
+    }
+  ],
+  "dibimbing-cm": [
+    {
+      "src": "/work/dibimbing-cm/01.webp",
+      "w": 1600,
+      "h": 854,
+      "from": "Screenshot (6060).png"
+    },
+    {
+      "src": "/work/dibimbing-cm/02.webp",
+      "w": 1600,
+      "h": 854,
+      "from": "Screenshot (6061) (1).png"
+    }
+  ],
+  "bem-head": [
+    {
+      "src": "/work/bem-head/01.webp",
+      "w": 1109,
+      "h": 1479,
+      "from": "4935266539012474579.90ad8fa4ec30c62b8965319fe764d9d9.23100706.jpg"
+    },
+    {
+      "src": "/work/bem-head/02.webp",
+      "w": 1479,
+      "h": 1109,
+      "from": "IMG_1317.JPG"
+    },
+    {
+      "src": "/work/bem-head/03.webp",
+      "w": 1600,
+      "h": 1067,
+      "from": "IMG_2625.JPG"
+    },
+    {
+      "src": "/work/bem-head/04.webp",
+      "w": 1200,
+      "h": 1600,
+      "from": "IMG_4909.HEIC"
+    },
+    {
+      "src": "/work/bem-head/05.webp",
+      "w": 1600,
+      "h": 1067,
+      "from": "IMG_6507.jpeg"
+    },
+    {
+      "src": "/work/bem-head/06.webp",
+      "w": 1600,
+      "h": 1067,
+      "from": "IMG_6532.jpeg"
+    }
+  ],
+  "bem-staff": [
+    {
+      "src": "/work/bem-staff/01.webp",
+      "w": 1600,
+      "h": 1067,
+      "from": "IMG_0301.jpeg"
+    },
+    {
+      "src": "/work/bem-staff/02.webp",
+      "w": 1600,
+      "h": 900,
+      "from": "IMG_3515.JPG"
+    },
+    {
+      "src": "/work/bem-staff/03.webp",
+      "w": 900,
+      "h": 1600,
+      "from": "IMG_5303.JPG"
+    },
+    {
+      "src": "/work/bem-staff/04.webp",
+      "w": 1600,
+      "h": 900,
+      "from": "IMG_7470.JPG"
+    },
+    {
+      "src": "/work/bem-staff/05.webp",
+      "w": 1479,
+      "h": 1109,
+      "from": "IMG_7613.JPG"
+    },
+    {
+      "src": "/work/bem-staff/06.webp",
+      "w": 1600,
+      "h": 900,
+      "from": "IMG_9239.JPG"
+    },
+    {
+      "src": "/work/bem-staff/07.webp",
+      "w": 1600,
+      "h": 900,
+      "from": "RED07122.jpeg"
+    }
+  ]
+}

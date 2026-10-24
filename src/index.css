@@ -1,0 +1,247 @@
+@import "@fontsource-variable/bricolage-grotesque";
+@import "@fontsource-variable/dm-sans";
+@import "@fontsource-variable/caveat";
+@import "@fontsource/dm-mono/400.css";
+@import "@fontsource/dm-mono/500.css";
+@import "tailwindcss";
+
+/*
+  Visual language: soft clay surfaces + skeuomorphic objects (ID card, keycaps, polaroids, postcard)
+  arranged in bento grids. No visible strokes: depth comes from light, shadow and color.
+  Shape system: tiles 32px, inner cards 24px, buttons/pills full, paper objects 4px.
+  z-index scale: nav 40, dialog 60, grain 70.
+*/
+@theme {
+  --font-display: "Bricolage Grotesque Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "DM Sans Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-hand: "Caveat Variable", cursive;
+  --font-mono: "DM Mono", ui-monospace, monospace;
+
+  --color-paper: #f7f4ef;
+  --color-ink: #211d2b;
+  --color-ink-soft: #625d6d;
+
+  --color-blue: #3461e8;
+  --color-pink: #f2508f;
+  --color-yellow: #f8c641;
+  --color-green: #1e9e68;
+  --color-orange: #ff7a45;
+  --color-red: #e5483a;
+
+  --color-sky: #d3e7fb;
+  --color-blush: #ffd9e6;
+  --color-mint: #cdeedc;
+  --color-butter: #fcebb0;
+  --color-lilac: #e0d9fb;
+  --color-peach: #ffdccb;
+  --color-cream: #fffdf9;
+
+  --ease-out-soft: cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+@layer base {
+  /* the whole UI is sized in rem: 87.5% on phones, 80% from laptops up */
+  html {
+    font-size: 87.5%;
+    scroll-behavior: smooth;
+    scroll-padding-top: 6.5rem;
+    -webkit-text-size-adjust: 100%;
+  }
+  @media (min-width: 64rem) {
+    html {
+      font-size: 80%;
+    }
+  }
+  body {
+    @apply bg-paper text-ink font-sans antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  ::selection {
+    background: var(--color-pink);
+    color: white;
+  }
+  :focus-visible {
+    outline: 3px solid rgb(52 97 232 / 0.55);
+    outline-offset: 3px;
+    border-radius: 12px;
+  }
+  img {
+    user-select: none;
+    -webkit-user-drag: none;
+  }
+}
+
+@layer components {
+  /* soft pastel light pools behind everything */
+  .page-bg {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background:
+      radial-gradient(38rem 30rem at 8% 6%, rgb(255 217 230 / 0.9), transparent 70%),
+      radial-gradient(34rem 28rem at 96% 18%, rgb(211 231 251 / 0.95), transparent 70%),
+      radial-gradient(40rem 30rem at 70% 96%, rgb(252 235 176 / 0.7), transparent 70%),
+      radial-gradient(30rem 26rem at 2% 88%, rgb(205 238 220 / 0.75), transparent 70%),
+      var(--color-paper);
+  }
+
+  .grain {
+    position: fixed;
+    inset: 0;
+    z-index: 70;
+    pointer-events: none;
+    opacity: 0.4;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.1  0 0 0 0 0.1  0 0 0 0 0.12  0 0 0 0.07 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  }
+
+  /* claymorphism surface; tint shadows per tile with --sh (rgb triplet) */
+  .clay {
+    --sh: 70 52 100;
+    border-radius: 2rem;
+    box-shadow:
+      inset 0 2px 1px rgb(255 255 255 / 0.7),
+      inset 0 -12px 24px rgb(var(--sh) / 0.09),
+      inset 0 14px 28px rgb(255 255 255 / 0.4),
+      0 32px 56px -30px rgb(var(--sh) / 0.5),
+      0 10px 20px -12px rgb(var(--sh) / 0.2);
+  }
+  .clay-sm {
+    --sh: 70 52 100;
+    border-radius: 1.5rem;
+    box-shadow:
+      inset 0 1.5px 1px rgb(255 255 255 / 0.7),
+      inset 0 -8px 16px rgb(var(--sh) / 0.08),
+      0 18px 32px -20px rgb(var(--sh) / 0.45),
+      0 6px 12px -8px rgb(var(--sh) / 0.18);
+  }
+
+  /* glossy pressable button */
+  .btn {
+    --sh: 52 97 232;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: 999px;
+    padding: 0.9rem 1.5rem;
+    font-weight: 600;
+    white-space: nowrap;
+    background-image: linear-gradient(180deg, rgb(255 255 255 / 0.3), rgb(255 255 255 / 0) 60%);
+    box-shadow:
+      inset 0 1.5px 0 rgb(255 255 255 / 0.55),
+      inset 0 -3px 0 rgb(0 0 0 / 0.14),
+      0 14px 24px -12px rgb(var(--sh) / 0.75),
+      0 3px 6px -2px rgb(var(--sh) / 0.3);
+    transition:
+      transform 180ms var(--ease-out-soft),
+      box-shadow 180ms var(--ease-out-soft);
+  }
+  .btn:hover {
+    transform: translateY(-2px);
+  }
+  .btn:active {
+    transform: translateY(1px) scale(0.98);
+    box-shadow:
+      inset 0 3px 8px rgb(0 0 0 / 0.18),
+      0 4px 8px -4px rgb(var(--sh) / 0.5);
+  }
+  .btn-light {
+    --sh: 70 52 100;
+    background-color: white;
+    color: var(--color-ink);
+    background-image: linear-gradient(180deg, #fff, #f4f1ec);
+    box-shadow:
+      inset 0 1.5px 0 #fff,
+      inset 0 -3px 0 rgb(70 52 100 / 0.08),
+      0 14px 24px -14px rgb(var(--sh) / 0.5),
+      0 3px 6px -2px rgb(var(--sh) / 0.12);
+  }
+
+  /* skeuomorphic keycap */
+  .keycap {
+    --cap: #ffffff;
+    --edge: #d9d3ca;
+    position: relative;
+    border-radius: 0.875rem;
+    background: linear-gradient(180deg, color-mix(in oklab, var(--cap), white 35%) 0%, var(--cap) 70%);
+    box-shadow:
+      inset 0 1.5px 0 rgb(255 255 255 / 0.8),
+      inset 0 -2px 3px rgb(0 0 0 / 0.06),
+      0 6px 0 var(--edge),
+      0 12px 18px -6px rgb(40 30 60 / 0.35);
+    transition:
+      transform 120ms var(--ease-out-soft),
+      box-shadow 120ms var(--ease-out-soft);
+  }
+  .keycap:active,
+  .keycap[data-pressed="true"] {
+    transform: translateY(5px);
+    box-shadow:
+      inset 0 1.5px 0 rgb(255 255 255 / 0.6),
+      inset 0 2px 5px rgb(0 0 0 / 0.1),
+      0 1px 0 var(--edge),
+      0 3px 6px -2px rgb(40 30 60 / 0.3);
+  }
+
+  .tape {
+    position: absolute;
+    height: 1.625rem;
+    width: 5.75rem;
+    opacity: 0.85;
+    clip-path: polygon(3% 0, 97% 0, 100% 20%, 97% 40%, 100% 60%, 97% 80%, 100% 100%, 3% 100%, 0 80%, 3% 60%, 0 40%, 3% 20%);
+    box-shadow: inset 0 0 0 100px rgb(255 255 255 / 0.15);
+  }
+
+  .sky {
+    background:
+      radial-gradient(55% 40% at 20% 28%, rgb(255 255 255 / 0.95), transparent 70%),
+      radial-gradient(40% 28% at 78% 16%, rgb(255 255 255 / 0.85), transparent 70%),
+      radial-gradient(50% 32% at 82% 74%, rgb(255 255 255 / 0.8), transparent 70%),
+      radial-gradient(45% 30% at 30% 90%, rgb(255 255 255 / 0.75), transparent 70%),
+      linear-gradient(180deg, #a6d0f3 0%, #c6e1f8 55%, #e3f0fb 100%);
+  }
+
+  .checker {
+    background: repeating-conic-gradient(var(--color-green) 0 25%, #fbf6e4 0 50%) 0 0 / 1.375rem 1.375rem;
+  }
+
+  /* soft gingham: tone-on-tone color blocks, reads as texture rather than lines */
+  .soft-gingham {
+    background-color: #f7a9c6;
+    background-image:
+      linear-gradient(90deg, rgb(255 255 255 / 0.16) 50%, transparent 50%),
+      linear-gradient(rgb(255 255 255 / 0.16) 50%, transparent 50%);
+    background-size: 3.5rem 3.5rem;
+  }
+
+  /* same gingham as the roles band, as a reusable accent: set --g (rgb triplet) and --gs (check size) */
+  .gingham {
+    --g: 242 80 143;
+    --gs: 1.25rem;
+    background-color: #fffdf9;
+    background-image:
+      linear-gradient(90deg, rgb(var(--g) / 0.22) 50%, transparent 50%),
+      linear-gradient(rgb(var(--g) / 0.22) 50%, transparent 50%);
+    background-size: var(--gs) var(--gs);
+  }
+
+  .holo {
+    background-image: linear-gradient(110deg, #ffd6e7, #d3e7fb, #cdeedc, #fcebb0, #e0d9fb, #ffd6e7);
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}
